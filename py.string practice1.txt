@@ -1,0 +1,78 @@
+5 july 2025
+
+covert upper case  (by in -built function)
+def swap_case(s):
+    return s.swapcase()
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
+  
+🕒 Time Complexity: O(n)
+s.swapcase() examines each character exactly once (n = length of string) and decides to convert or not—making it O(n).
+
+HackerRank discussions specifically confirm:
+
+“Time Complexity : O(n) - s.swapcase() iterates through each character in the string s.
+
+ Space Complexity: O(n)
+Strings in Python are immutable, so swapcase() creates a new string of the same length containing the modified characters—consuming linear space in memory.
+
+As noted:
+
+“Space Complexity: O(n) s.swapcase() returns a new string … a new string of size n is returned → linear space → O(n
+
+
+
+
+# from scratch 
+
+
+def upper_case(s):
+    res = []
+    for ch in s:
+        # Check if 'ch' is lowercase alphabetic
+        if ch.islower():
+            res.append(ch.upper())
+        else:
+            res.append(ch)
+    # Join without adding extra spaces
+    return ''.join(res)
+
+
+if __name__ == '__main__':
+    s = input()
+    result = upper_case(s)
+    print(result)
+loop iteratin = O(n) hr char p jayga 
+ O(1) constant  = ch.islower(), ch.upper(), aur res.append(...) 
+After the loop: ''.join(res)
+
+Join operation two-pass process karta hai:
+
+Pehle pass mein total output length calculate hota hai.
+
+Dusre pass mein characters copy hote hain.
+
+Overall, join bhi O(n) hota hai 
+Total time: O(n) + O(n) = O(n)
+
+💾 Space Complexity = O(n)
+res list
+
+Har character ke liye ek element store hota hai → list size ~ n → O(n) .
+
+Final string from join
+
+''.join(res) ek n-length ka string banata hai → aur O(n) space.
+
+Extra overhead
+
+Loop variables (ch) aur index pointers negligible hote hain → O(1).
+
+Total space: O(n) + O(n) = O(n
+
+
+
+ 
